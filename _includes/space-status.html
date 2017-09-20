@@ -1,0 +1,27 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  spaceopen();
+});
+
+function spaceopen() {
+  //http://nobreakspace.org/status/spaceapi.json
+
+  $.get( "http://nobreakspace.org/status/spaceapi.json", function( data ) {
+    console.log(data);
+    if(data.open) {
+      console.log("OPEN");
+      $("#spaceopen").css( "border", "3px solid green" );
+      $("#spaceopen").html("<p>Der nbsp ist offen!</p></center>");
+    } else {
+      console.log("CLOSED");
+      $("#spaceopen").css( "border", "3px solid red" );
+      $("#spaceopen").html("<p>Der nbsp ist geschlossen!</p>");
+    }
+  });
+}
+</script>
+
+<div id="spaceopen">
+
+</div>

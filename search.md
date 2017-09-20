@@ -1,5 +1,6 @@
 ---
 title: Search
+feature_image: "/assets/blog.jpg"
 excerpt: "Search for a page or post you're looking for"
 ---
 

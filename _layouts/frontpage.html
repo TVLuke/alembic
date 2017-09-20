@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+
+	<div class="content">
+
+    <article class="article  article--page  typeset">
+
+				{{ content }}
+
+    </article>
+
+    {% include post-list-frontpage.html %}
+
+	<a href="{{site.baseurl}}/blog/page2/">Next →</a>
+  </div>
+
+  {% include site-aside.html %}
+
+</main>
+
+{% include site-footer.html %}

@@ -1,4 +1,28 @@
-{% if site.navigation_header %}
+<!--{% if site.navigation_header %}
+<nav class="nav  nav--header">
+  <button class="button  button--nav" aria-label="Nav toggle">
+    {% include icon.html id="nav" %}
+  </button>
+  <ul class="list  list--nav">
+    {% for item in site.navigation_header %}
+
+      {% if item[1] contains '://' %}
+      {% assign url = item[1] %}
+      {% else %}
+      {% assign url = item[1] | relative_url %}
+      {% endif %}
+
+      <li class="item  item--nav{% if item[1] == page.url %}  item--current{% endif %}">
+        <a href="{{ url }}">{{ item[0] }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% else %}
+  {% include nav-default.html %}
+{% endif %} -->
+
+{% if site.nav_header %}
 <nav class="nav  nav--header">
   <button class="button  button--nav" aria-label="Nav toggle">
     {% include icon.html id="nav" %}
@@ -21,6 +45,7 @@
 {% else %}
   {% include nav-default.html %}
 {% endif %}
+
 <script type="text/javascript">
 const applyToggle = (list, button, breakpoint) => {
   const navList = document.querySelector(list)

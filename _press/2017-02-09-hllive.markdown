@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Freifunker in Lübeck informieren über ihr Projekt"
+date:   2017-02-09 00:00:00 +0200
+publication: "hl-live.de"
+link: https://www.hl-live.de/aktuell/textstart.php?id=112174
+categories:
+- press
+---

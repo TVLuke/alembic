@@ -1,21 +1,51 @@
 <aside class="aside  typeset{% if include.align == "left" %}  aside--left{% endif %}">
 
-  {% if page.layout == "post" %}
+  {% if page.layout == "post"%}
     <section class="section  section--related-posts">
       {% include post-related.html %}
     </section>
 
-  {% elsif page.layout == "page" or page.layout == "home" or page.layout == "blog" %}
+    {% elsif page.layout == "verein" or page.layout == "press" %}
     <section class="section  section--description">
-      <h3>About this site</h3>
-      <p>{{ site.description }}</p>
-      {% include nav-social.html %}
+      {% include vereinnavigation.html %}
     </section>
 
-  {% elsif page.layout == "categories" %}
-    <section class="section  section--category-index">
-      <h3>Index</h3>
-      {% include nav-categories.html %}
+
+    {% elsif page.layout == "page" or page.layout == "home" or page.layout == "blog" or page.layout == "frontpage"%}
+    <section class="section  section--description">
+      <h3>Nbsp</h3>
+      <p>{% include space-status.html %}</p>
+      <h3>Über uns</h3>
+      <p>{{ site.description }}</p>
+      {% include nav-social.html %}
+      <h3>Twitter</h3>
+      {% twitter https://twitter.com/chaotikum_ev  maxwidth=500 limit=5 %}
+    </section>
+
+    {% elsif page.layout == "project" %}
+    <section class="section  section--description">
+      <p><b>Status: </b>{{ page.status }}</p>
+      <b>Kontakt</b>
+      <ul>
+      {% for human in page.contact %}
+        <li>{{ human }}</li>
+      {% endfor %}
+      </ul>
+      {% if page.image %}
+        <div class=projectthumbnail style="background-image: url({{site.baseurl}}/images/thumbnails/{{page.image}}); height: 200px; width: 200px; margin-right: auto; margin-left: auto;  margin-top: 10px;">
+      </div>
+      {% endif %}
+      <h3>Artikel</h3>
+      {% for post in site.posts %}
+        {% if post.categories contains 'blog' %}
+          {% if post.tags contains page.tag %}
+            <ul>
+              <li><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></li>
+            </ul>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% include nav-share.html %}
     </section>
 
   {% endif %}

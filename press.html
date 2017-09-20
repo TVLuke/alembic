@@ -1,0 +1,28 @@
+---
+layout: press
+title: Presse
+permalink: verein/press/
+aside: true
+feature_image: "https://chaotikum.org/_media/hackerspace:nbsp:nbspvonoben.jpg"
+---
+
+<div class="home">
+  <div class="blog">
+    <h1>Pressemitteilungen</h1>
+    <ul class="post-list">
+    {% for post in site.categories['pm'] %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%d.%m.%Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div id="pressematerial">
+    <h1>Pressematerial</h1>
+    <p>Die hier zur Verfügung gestellten Bilder und Grafiken stehen Ihnen in Ihrer Berichterstattung über den Chaotikum e.V. und Veranstalltungen des Chaotikum e.V. zur freien, uneingeschränkten Verfügung.</p>
+
+    <a href="http://chaotikum.org/_media/presse:105x35_transparent.pdf">Logo des Chaotikum e.V. zu herunterladen.</a>
+  </div>
+  {% include {{site.pressespiegel}} %}
+</div>
